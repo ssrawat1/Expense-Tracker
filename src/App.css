@@ -1,0 +1,319 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins';
+  box-sizing: content-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  background-color:#1d2840;; /* Dark navy blue for the overall background */
+}
+
+main {
+   max-width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 60px;
+  text-align: center;
+}
+main h1 {
+  color: #ffffff; /* Solid white for the title */
+  margin-bottom: 64px;
+}
+main h1:hover {
+  color: #ffffff; /* Maintain solid white on hover */
+}
+
+.expense-tracker {
+  display: flex;
+  gap: 60px;
+  padding-top: 40px;
+  justify-content: center;
+}
+
+.expense-form {
+  width: 100%;
+  max-width: 400px;
+  background-color: #1e3a8a; /* Updated to a deep blue for better contrast */
+  padding: 20px;
+  border-radius: 8px;
+  color: #e0e7ff; /* Soft white for text */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.expense-form:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+.expense-form .input-container select option {
+  background-color: navy;
+  color: lightcyan;
+}
+
+.expense-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  color: #1e293b; /* Dark blue-gray for text */
+  background-color: #e0f2fe; /* Light blue for the table background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.expense-table:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.expense-table select {
+  border-radius: 10px;
+  font: inherit;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: inherit;
+  background-color: inherit;
+}
+
+.amount-column .amount-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.amount-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 2px;
+}
+.amount-column span {
+  margin-right: 6px;
+}
+
+.arrow {
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.up-arrow {
+  margin-left: auto;
+}
+
+.up-arrow:active {
+  transform: translateY(-2px);
+}
+
+.down-arrow {
+  margin-left: 6px;
+}
+
+.down-arrow:active {
+  transform: translateY(2px);
+}
+
+.expense-table th,
+.expense-table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid black;
+  transition: background-color 0.3s ease;
+}
+.expense-table th {
+  background-color: #0f172a; /* Dark blue for header */
+  color: #ffffff; /* White text for contrast */
+}
+.expense-table th select option {
+  background-color: #b0c4de;
+  color: black;
+}
+
+.expense-table td:hover {
+  background-color: #bae6fd; /* Light blue for hover effect */
+}
+.editing-row {
+  background-color: green;
+  color: lightcyan;
+}
+.editing-row td:hover {
+  background-color: transparent;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  text-align: start;
+}
+
+.input-container label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.input-container input {
+  height: 36px;
+  font-family: inherit;
+  outline-style: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding-left: 10px;
+  transition: border-color 0.3s ease;
+}
+.input-container input:focus {
+  border-color: #5eb6d8;
+}
+
+#category {
+  height: 32px;
+  font-family: inherit;
+  outline-style: none;
+  border: none;
+  padding: 0 8px;
+  transition: border-color 0.3s ease;
+}
+
+.add-btn,
+.save-btn {
+  width: 100%;
+  height: 36px;
+  font-size: 18px;
+  font-family: inherit;
+  margin-top: 12px;
+  background-color: #5eb6d8;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 4px;
+}
+.save-btn {
+  background-color: green;
+}
+
+.add-btn:hover {
+  background-color: #479bb1;
+  transform: scale(1.02);
+  font-weight: bold;
+}
+.save-btn:hover {
+  background-color: #229722;
+  transform: scale(1.02);
+  font-weight: bold;
+}
+
+.context-menu {
+  background-color: white;
+  border: 1px solid;
+  position: absolute;
+  color: black;
+  /* display: none; */
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.context-menu div {
+  padding: 2px 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.context-menu .edit-btn {
+  background-color: blue;
+  color: white;
+}
+.context-menu .delete-btn {
+  background-color: teal;
+  color: white;
+}
+
+.context-menu .edit-btn:hover {
+  background-color: green;
+  color: #fff;
+}
+.context-menu .delete-btn:hover {
+  background-color: red;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .expense-tracker {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .expense-form {
+    width: 100%;
+  }
+  .expense-table {
+    width: 100%;
+  }
+}
+
+.error-message {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
+
+/* For Chrome, Safari, and Edge */
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type='number'] {
+  -webkit-moz-appearance: textfield;
+}
+
+.up-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid darkgreen;
+  transition: transform 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.down-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid darkred;
+  transition: transform 0.3s ease, border-top-color 0.3s ease;
+}
+
+/* Hover Effects */
+.up-arrow:hover {
+  transform: scale(1.2);
+
+  border-bottom-color: green;
+}
+
+.down-arrow:hover {
+  transform: scale(1.2);
+
+  border-top-color: red;
+}
+
+.sort-btn.sort-btn {
+  background-color: #0f172a;
+  text-align: center;
+  color: green;
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+  transition: All 0.3s ease;
+}
+
+.sort-btn.sort-btn:hover {
+  background-color: black;
+}
